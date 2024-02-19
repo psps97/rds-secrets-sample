@@ -19,6 +19,6 @@ public class Runner implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        jdbcTemplate.update("INSERT INTO user (firstname, lastname, created_time) VALUES (?, ?, ?)", "Luan", "Vu", LocalDateTime.now());
+        jdbcTemplate.update("INSERT INTO USER_TEST (FIRSTNAME, LASTNAME) VALUES (?, ?)", "Luan", "Vu");
     }
 }

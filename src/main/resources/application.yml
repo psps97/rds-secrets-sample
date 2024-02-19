@@ -1,7 +1,29 @@
+#spring:
+#  datasource:
+#    url: jdbc-secretsmanager:mysql://<rds-endpoint>:3306/aws
+#    username: <secret-name>
+#    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerMySQLDriver
+#  liquibase:
+#    enabled: true
+  
+#spring:
+#  datasource:
+#    url: jdbc-secretsmanager:postgresq://<rds-endpoint>:5432/aws
+#    username: <secret-name>
+#    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerPostgreSQLDriver
+#  liquibase:
+#    enabled: true
+    
+    
 spring:
   datasource:
-    url: jdbc-secretsmanager:mysql://<rds-endpoint>:3306/aws
-    username: <secret-name>
-    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerMySQLDriver
+    #url: jdbc-secretsmanager:postgresq://builders-database-instance-1.cjrjvojj34kf.us-east-1.rds.amazonaws.com:5432/shop
+    url: jdbc-secretsmanager:postgresql://builders-database-instance-1.cjrjvojj34kf.us-east-1.rds.amazonaws.com:5432/shop
+    username: prod/AppBeta/PG
+    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerPostgreSQLDriver
   liquibase:
     enabled: true
+aws:
+  secretsmanager:
+    your-secret-name: prod/AppBeta/PG
+    region: us-east-1

@@ -21,6 +21,13 @@ spring:
     url: jdbc-secretsmanager:mysql://<rds-endpoint>:3306/aws
     username: <secret-name>
 ```
+#spring:
+#  datasource:
+#    url: jdbc-secretsmanager:postgresq://<rds-endpoint>:5432/aws
+#    username: <secret-name>
+#    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerPostgreSQLDriver
+#  liquibase:
+#    enabled: true
 
 ## Authors
 

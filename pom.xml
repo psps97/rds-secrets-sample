@@ -14,7 +14,7 @@
 	<name>rdssecrets</name>
 	<description>Demo project for Spring Boot AWS RDS, Secrets</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -30,10 +30,29 @@
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>com.amazonaws.secretsmanager</groupId>
 			<artifactId>aws-secretsmanager-jdbc</artifactId>
-			<version>1.0.5</version>
+			<version>2.0.0</version>
 		</dependency>
+		<!--
+		<dependency>
+    		<groupId>com.amazonaws</groupId>
+    		<artifactId>aws-java-sdk-secretsmanager</artifactId>
+    		<version>1.12.661</version>
+		</dependency>
+		-->
+		<!--
+		 <dependency>
+    		<groupId>com.amazonaws.secretsmanager</groupId>
+    		<artifactId>aws-secretsmanager-jdbc</artifactId>
+    		<version>2.0.0</version>
+		</dependency>
+		-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -49,5 +68,18 @@
 			</plugin>
 		</plugins>
 	</build>
-
+<profiles>
+  <profile>
+    <id>allow-snapshots</id>
+    <activation><activeByDefault>true</activeByDefault></activation>
+    <repositories>
+      <repository>
+        <id>snapshots-repo</id>
+        <url>https://aws.oss.sonatype.org/content/repositories/snapshots</url>
+        <releases><enabled>false</enabled></releases>
+        <snapshots><enabled>true</enabled></snapshots>
+      </repository>
+    </repositories>
+  </profile>
+</profiles>
 </project>
